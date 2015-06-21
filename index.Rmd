@@ -1,0 +1,63 @@
+---
+title       : MPG Predictor 
+subtitle    : An easy-to-use shiny app
+author      : lsbillups
+job         : Coursera Data Product Project
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [mathjax]     # {mathjax, quiz, bootstrap}
+mode        : selfcontained   # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Introduction
+
+1. The shiny app `MPG_Predictor` provides an easy way for users to obtain an estimate of Miles-per-gallon (MPG) of their vehicles.
+
+2. The app is solely based on a multivariate regression model built on `mtcars` dataset in `datasets` Package.
+
+3. The app only takes three input variables: weight, quarter mile time and type of transmission.
+
+4. Not only the app generates a prediction on MPG, it also provides a 95% prediction interval.
+
+--- .class #id1
+
+## Multivariate Regression Model
+
+```{r}
+head(mtcars,3)
+fit<-lm(mpg ~ wt+qsec+am,data = mtcars)
+summary(fit)$coefficients
+```
+
+--- .class #id2 
+
+## Simple algorithm yet nice result
+
+```{r}
+summary(fit)$r.squared
+```
+
+With Rsquare almost 85%, most of the variation is explained by the model. Furthermore, a simple algorithm dramatically cut down the reaction time for the app.
+
+Unlike other prediction app, MPG_Predictor includes 95% prediction interval as well, which provides user another perspective to justify the estimate.
+
+With clear instruction, the app is for everyone.
+
+[Try it today!](https://lsbillups.shinyapps.io/MPG_predictor)
+
+--- .class #id3
+
+##  Acknowledge
+
+Thank you for the Coursera Data Science Specialization. Without this sequence, I couldn't even imagine build an app like this in R. Even though this app is just a baby project, hopefully it will become my starting point as a statyistical analyst.
+
+For more details about this app, please refer to 
+[My Github account](https://github.com/lsbillups/Coursera-Data-Product)
+and
+[Coursera Developing Data Products Course](https://class.coursera.org/devdataprod-015)
+
+
+
+
